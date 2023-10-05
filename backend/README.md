@@ -14,7 +14,7 @@ pip install -r requirements.txt
 
 **Step 3:** Launch backend using `uvicorn` command
 ```bash
-uvicorn main:app --reload
+uvicorn app.main:app --reload
 ```
 
 **Step 4:** Visit the endpoint on a browser. Uvicorn will usually run on port 8000
