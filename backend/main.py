@@ -18,3 +18,8 @@ async def postform():
 @app.get("/monitoring")
 async def get_monitoring():
     return "{}: {}".format(date.today(), random.randint(10, 100))
+
+@app.get("/metrics")
+async def get_metrics():
+    return "testing_testing_testing, {}".format(random.randint(10, 100))
+
