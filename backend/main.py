@@ -23,5 +23,11 @@ async def get_monitoring():
 
 @app.get("/metrics", response_class=PlainTextResponse)
 async def get_metrics():
-    return "testing_testing_testing, {}".format(random.randint(10, 100))
+    name = 'testing_testing_testing'
+    return "{}\n{}\n{} {}".format(
+        f"# HELP {name} A dummy parameter for testing",
+        f"# TYPE {name} gauge",
+        name,
+        random.randint(10, 100)
+    )
 
