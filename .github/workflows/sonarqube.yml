@@ -1,0 +1,32 @@
+name: SonarQube Static Analysis
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sonarqube-analysis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '17'
+
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@v2
+        with:
+          sonar-host-url: 'http://143.198.165.49:9000'
+          sonar-login: ${{ secrets.SONARQUBE_TOKEN }}
+
+      - name: Upload SonarQube results
+        uses: actions/upload-artifact@v2
+        with:
+          name: sonarqube-report
+          path: .scannerwork/report-task.txt
