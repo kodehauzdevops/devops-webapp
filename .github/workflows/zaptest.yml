@@ -16,7 +16,7 @@ jobs:
           server: ftp.kodehauz.dev
           username: kodehauzdev-staging-ftp@staging.kodehauz.dev
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./frontend
+          local-dir: ./frontend/
       - name: ZAP Scan
         uses: zaproxy/action-full-scan@v0.8.0
         with:
