@@ -21,9 +21,9 @@ jobs:
 
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@v2
-        with:
-          sonar-host-url: 'http://143.198.165.49:9000'
-          sonar-login: ${{ secrets.SONARQUBE_TOKEN }}
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
       - name: Upload SonarQube results
         uses: actions/upload-artifact@v2
