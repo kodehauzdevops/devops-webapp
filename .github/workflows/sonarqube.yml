@@ -20,13 +20,13 @@ jobs:
           java-version: '17'
 
       - name: SonarQube Scan
-        uses: sonarsource/sonarqube-scan-action@v2
+        uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
-      - name: Upload SonarQube results
-        uses: actions/upload-artifact@v2
-        with:
-          name: sonarqube-report
-          path: .scannerwork/report-task.txt
+      # - name: Upload SonarQube results
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: sonarqube-report
+      #     path: .scannerwork/report-task.txt
